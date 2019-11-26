@@ -1,0 +1,5 @@
+Rule    BrazilSP  2018    only    -       Nov     18      0:00    1:00    S
+Rule    BrazilSP  2019    only    -       Feb     16      0:00    0       -
+
+# Zone  NAME                    GMTOFF  RULES/SAVE      FORMAT  [UNTIL]
+Zone    America/Sao_Paulo       -3:00   BrazilSP        BR%sT
