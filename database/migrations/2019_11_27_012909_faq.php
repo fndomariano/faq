@@ -13,7 +13,17 @@ class Faq extends Migration
      */
     public function up()
     {
-        //
+		Schema::dropIfExists('faq');
+
+		Schema::create('faq', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('question');
+            $table->text('answer');
+            $table->unsignedInteger('created_by');
+            $table->timestamps();
+			$table->foreign('created_by')->references('id')->on('users');        
+			$table->engine = 'InnoDB';
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class Faq extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('faq');
     }
 }
