@@ -39,6 +39,13 @@ RUN echo "export PATH=\$PATH:\$HOME/.composer/vendor/bin/:/php-composer" >> ~/.b
 # Add user
 RUN usermod -u 1000 www-data
 
+
+# Install node
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
+ apt-get install -y nodejs
+
+RUN npm -g install npm@latest-2
+
 WORKDIR /app
 
 RUN chown -R www-data:www-data /app
