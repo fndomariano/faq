@@ -12,17 +12,17 @@ class Faq extends Migration
      * @return void
      */
     public function up()
-    {
-		Schema::dropIfExists('faq');
-
+    {	
 		Schema::create('faq', function (Blueprint $table) {
-            $table->increments('id');
+			$table->increments('id');
+			$table->string('reference');
+			$table->integer('useful');
+			$table->integer('useless');
             $table->text('question');
             $table->text('answer');
-            $table->unsignedInteger('created_by');
+            $table->integer('created_by')->unsigned();
             $table->timestamps();
-			$table->foreign('created_by')->references('id')->on('users');        
-			$table->engine = 'InnoDB';
+			$table->foreign('created_by')->references('id')->on('users');        			
         });
     }
 
