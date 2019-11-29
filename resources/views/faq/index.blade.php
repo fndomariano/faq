@@ -4,14 +4,10 @@
     <div class="container">
         <h2>
             FAQs
-            <a href="#" class="btn btn-success pull-right">Add</a>
-        </h2>
+			<a href="{{ route('faq.create') }}" class="btn btn-success float-right">Add</a>
+		</h2>
 
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @endif
+        @include('partials.feedback')
         
         @if ($faqs)
             <table class="table table-condensed table-bordered">
@@ -40,12 +36,16 @@
                             <td>{{ $faq->created_at->format('d/m/Y H:i:s') }}</td>
                             <td>{{ $faq->updated_at->format('d/m/Y H:i:s') }}</td>
                             <td width="1%" nowrap>
-                                <a href="#" class="btn btn-info">
-                                    <i class="glyphicon glyphicon-pencil"></i>
+                                <a href="{{ route('faq.edit', $faq->id) }}" class="btn btn-info">
+                                    Edit
                                 </a>
-                                <a href="#" class="btn btn-info">
-									<i class="glyphicon glyphicon-remove"></i>
-                                </a>
+                                <form action="{{ route('faq.destroy', $faq->id) }}" method="post" class="form-delete" style="display: inline;">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger delete">
+                                        Remove
+                                    </button>
+                                </form> 
                             </td>
                         </tr>
                     @endforeach
@@ -61,6 +61,6 @@
 
     </div>
     
-    {{-- @include('partials.confirm') --}}
+    @include('partials.confirm')
 
 @stop

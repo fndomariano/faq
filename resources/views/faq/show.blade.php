@@ -3,8 +3,7 @@
 @section('content')
 	<div class="container">
 		<h2>
-			Show FAQ
-			<a href="{{ route('faq.index') }}" class="btn btn-success pull-right">Back</a>
+			FAQ			
 		</h2>
 		<table class="table table-condensed table-bordered">
 			<tr>
@@ -36,5 +35,6 @@
 				<td>{{ $faq->updated_at->format('d/m/Y H:i:s') }}</td>
 			</tr>
 		</table>		
+		<a href="{{ route('faq.index') }}" class="btn btn-danger">Back</a>
 	</div>
 @stop
