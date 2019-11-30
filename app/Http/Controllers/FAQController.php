@@ -94,7 +94,7 @@ class FAQController extends Controller
 		$faq = FAQ::find($id);
 		
 		if (!$faq) {
-			
+			abort(404);
 		}
 
         return view('faq.edit', compact('faq'));
@@ -105,7 +105,7 @@ class FAQController extends Controller
 		$faq = FAQ::find($id);
 
 		if (!$faq) {
-			
+			abort(404);
 		}
 
 		return view('faq.show', compact('faq'));
@@ -116,7 +116,7 @@ class FAQController extends Controller
 		$faq = FAQ::find($id);
 		
 		if (!$faq) {
-
+			abort(404);
 		}
 
 		DB::beginTransaction();
