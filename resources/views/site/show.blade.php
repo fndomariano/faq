@@ -21,7 +21,7 @@
 			<i>Was this article useful?</i>
 			<br>
 			<a href="#">
-				<i class="fa fa-user-circle-o"></i>	Yes
+				Yes
 			</a>
 			<a href="#">
 				No

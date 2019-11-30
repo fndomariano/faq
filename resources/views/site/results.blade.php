@@ -24,5 +24,8 @@
 				@endforeach
 			</tbody>
 		</table>
+
+		{{ $faqs->links() }}
+		
 	</div>
 @stop

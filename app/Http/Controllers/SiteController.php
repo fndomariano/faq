@@ -13,21 +13,19 @@ class SiteController extends Controller
 	}
 
 	public function search(Request $request)
-	{
-		if (!$request->isMethod('post')) {
-			throw new \Exception('Invalid Request');
-		}		
-
-		$search = $request->search;
+	{		
+		$q = $request->q;
 
 		$faqs = FAQ::select('faq.*')
 			->selectRaw('users.name as username')
 			->join('users', 'users.id', '=', 'faq.created_by')
-			->where('reference', 'LIKE', '%'.$search.'%')
-			->orWhere('question', 'LIKE', '%'.$search.'%')
-			->orWhere('answer', 'LIKE', '%'.$search.'%')
+			->where('reference', 'LIKE', '%'.$q.'%')
+			->orWhere('question', 'LIKE', '%'.$q.'%')
+			->orWhere('answer', 'LIKE', '%'.$q.'%')
 			->orderBy('useful', 'DESC')			
-			->get();
+			->paginate(10);			
+		
+		$faqs->appends(['q' => $q]);
 		
 		return view('site.results', compact('faqs'));
 	}

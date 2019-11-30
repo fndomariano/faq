@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'SiteController@index')->name('site_index');
-Route::post('/search', 'SiteController@search')->name('site_search');
+Route::get('/search', 'SiteController@search')->name('site_search');
 Route::get('/show/{id}', 'SiteController@show')->name('site_show');
 
 
