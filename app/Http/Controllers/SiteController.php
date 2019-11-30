@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FAQ;
+use DB;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -42,5 +43,37 @@ class SiteController extends Controller
 		}
 
 		return view('site.show', compact('faq'));
+	}
+
+	public function vote(Request $request)
+	{		
+		if (!$request->isMethod('post')) {
+			throw new \Exception('Invalid request');
+		}
+
+		DB::beginTransaction();
+		
+		try	{
+						
+			$faq = FAQ::find($request->id);
+			$faq->vote($request->vote);
+			$faq->save();
+			
+			DB::commit();	
+
+			return [
+				'success' => true, 
+				'message' => 'Vote saved successfully'
+			];
+
+		} catch (\Exception $e) {
+			
+			DB::rollback();
+
+			return [
+				'success' => false, 
+				'message' => $e->getMessage()
+			];
+		}					
 	}
 }

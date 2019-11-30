@@ -16,4 +16,17 @@ class FAQ extends Model
 		'answer', 
 		'created_by'
 	];	
+
+	public function vote($vote)
+	{		
+		if ($vote == 'yes') {
+			$this->useful++;
+		}
+
+		if ($vote == 'no') {
+			$this->useless++;
+		}		
+		
+		return $this;
+	}
 }
