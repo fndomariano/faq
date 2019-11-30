@@ -15,7 +15,7 @@ class Faq extends Migration
     {	
 		Schema::create('faq', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('reference');
+			$table->string('reference')->unique();
 			$table->integer('useful');
 			$table->integer('useless');
             $table->text('question');
