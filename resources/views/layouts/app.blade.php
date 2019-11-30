@@ -32,7 +32,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('site.index') }}">
+							<a class="nav-link" href="{{ route('site_index') }}">
 								Home
 							</a>
 						</li>
