@@ -22,9 +22,9 @@ class FAQRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
+    {		
         return [
-            'reference' => 'required',
+			'reference' => 'required|unique:faq,reference,'.$this->faq,			
             'question'  => 'required',            
             'answer'    => 'required'            
         ];
@@ -33,9 +33,10 @@ class FAQRequest extends FormRequest
     public function messages() 
     {
         return [
-            'reference.required' => 'The field REFERENCE is required',        
-            'question.required'  => 'The field QUESTION is required',        
-            'answer.required'    => 'The field ANSWER is required'        
+			'reference.required' => 'The REFERENCE is required',			    
+			'reference.unique'   => 'The REFERENCE needs to be unique',			    
+            'question.required'  => 'The QUESTION is required',        
+            'answer.required'    => 'The ANSWER is required'        
         ];
     }
 	
