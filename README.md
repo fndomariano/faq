@@ -1,12 +1,10 @@
 # FAQ
 
-This project I made to learn a few about Laravel Framework. It consists an application to make questions and answers like a FAQ.
+This project I made to learn a few about Laravel Framework. It consists of an application to make questions and answers like an FAQ.
 
 ## Install
 
 Currently, this project runs only in localhost. To configure in your computer follow the steps below.
-
-
 
 a) Up the Docker containers
 ```bash 
@@ -44,7 +42,7 @@ e) Run migrations
 $ docker-compose php php artisan migration
 ```
 
-f) You can populate database with Seeders
+f) You can populate the database with Seeders
 ```bash
 $ docker-compose php php artisan db:seed
 ```
@@ -53,6 +51,8 @@ If you ran the Seeders, there is a user to test.
 
 **E-mail**: demo@test.com \
 **Password**: 123456
+
+
 
 # The MIT License
 
