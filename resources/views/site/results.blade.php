@@ -18,7 +18,7 @@
 					<td>{{ $faq->question }}</td>
 					<td>{{ $faq->username }}</td>
 					<td>
-						<a href="{{ route('site_show', $faq->id) }}">Show</a>
+						<a class="btn btn-info" href="{{ route('site_show', $faq->id) }}">Show</a>
 					</td>
 				</tr>
 				@endforeach
