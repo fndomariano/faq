@@ -63,7 +63,11 @@ class SiteController extends Controller
 
 			return [
 				'success' => true, 
-				'message' => 'Vote saved successfully'
+				'message' => 'Vote saved successfully',
+				'data' => [
+					'useful'  => $faq->useful,
+					'useless' => $faq->useless
+				]
 			];
 
 		} catch (\Exception $e) {

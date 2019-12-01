@@ -49574,6 +49574,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/faq.js":
+/*!*****************************!*\
+  !*** ./resources/js/faq.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('.vote').on('click', function () {
+    vote = $(this).hasClass('vote-yes') ? 'yes' : 'no';
+    $.ajax({
+      url: '/vote',
+      type: 'post',
+      dataType: 'json',
+      data: {
+        id: 10,
+        vote: vote,
+        _token: $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function success(response) {
+        $('.vote-useful').text(response.data.useful);
+        $('.vote-useless').text(response.data.useless);
+        $('#vote-modal').modal();
+      },
+      error: function error(xhr, status, _error) {
+        console.log('xhr: ' + xhr);
+        console.log('status: ' + status);
+        console.log('error: ' + _error);
+      }
+    });
+  });
+  $('.delete').on('click', function (e) {
+    $('#confirm').modal();
+    formClass = $(this).attr('class').split(' ').pop();
+    form = $('.' + formClass);
+    $('#btn-delete-yes').on('click', function () {
+      form.submit();
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49586,13 +49629,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!***********************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/faq.js ./resources/sass/app.scss ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /app/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /app/resources/js/faq.js */"./resources/js/faq.js");
 module.exports = __webpack_require__(/*! /app/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

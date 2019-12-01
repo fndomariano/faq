@@ -7,8 +7,8 @@
 		</h2>
 		<div>
 			<small><b>Created by:</b> {{ $faq->username }}</small> | 
-			<small><b>Useful:</b> {{ $faq->useful }}</small> |
-			<small><b>Useless:</b> {{ $faq->useless }}</small> |
+			<small><b>Useful:</b> <span class='vote-useful'>{{ $faq->useful }}</span></small> |
+			<small><b>Useless:</b> <span class='vote-useless'>{{ $faq->useless }}</span></small> |
 			<small><b>Created At:</b> {{ $faq->created_at->format('d/m/Y') }}</small> |
 			<small><b>Updated At:</b> {{ $faq->updated_at->format('d/m/Y') }}</small>
 		</div>
@@ -20,14 +20,16 @@
 		<div>			
 			<i>Was this article useful?</i>
 			<br>
-			<a href="#">
-				Yes
+			<a href="#" class="btn btn-success vote vote-yes">
+				Yes	
 			</a>
-			<a href="#">
+			<a href="#" class="btn btn-info vote vote-no">
 				No
 			</a>
 		</div>
 		<hr>						
 		<a href="{{ route('site_index') }}" class="btn btn-danger">Back</a>
 	</div>
+
+	@include('partials.vote-modal')
 @stop

@@ -38,13 +38,11 @@
                             <td width="1%" nowrap>
                                 <a href="{{ route('faq.edit', $faq->id) }}" class="btn btn-info">
                                     Edit
-                                </a>
-                                <form action="{{ route('faq.destroy', $faq->id) }}" method="post" class="form-delete" style="display: inline;">
+								</a>
+								<a href="#" class="btn btn-danger delete form-delete-{{ $faq->id }}">Remove</a>
+                                <form action="{{ route('faq.destroy', $faq->id) }}" method="post" class="form-delete-{{ $faq->id }}" style="display: inline;">
                                     @csrf
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger delete">
-                                        Remove
-                                    </button>
+                                    <input type="hidden" name="_method" value="DELETE">                                    
                                 </form> 
                             </td>
                         </tr>
