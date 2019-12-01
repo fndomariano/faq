@@ -1,6 +1,6 @@
 # FAQ
 
-This project I made to learn a few about Laravel Framework. It consists of an application to make questions and answers like an FAQ.
+This project I've made to learn a few about Laravel Framework. It consists of an application to make questions and answers like an FAQ.
 
 ## Install
 
