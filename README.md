@@ -52,6 +52,10 @@ If you ran the Seeders, there is a user to test.
 **E-mail**: demo@test.com \
 **Password**: 123456
 
+g) Access 
+```
+http://localhost:8003/
+```
 
 
 # The MIT License
